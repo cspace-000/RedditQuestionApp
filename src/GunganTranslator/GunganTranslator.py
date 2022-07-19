@@ -17,7 +17,7 @@ subreddit = reddit.subreddit('all')
 
 def read_comment(comment):
     if hasattr(comment, 'body') and hasattr(comment.author, 'name'):
-        if '!binkafy' in comment.body:
+        if '!binkabot' in comment.body:
             if comment.parent():
                 parent = comment.parent()  
                 parent.refresh()

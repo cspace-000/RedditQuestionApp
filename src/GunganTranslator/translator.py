@@ -16,7 +16,7 @@ def translate(sentence):
 
 class TranslateBase():
     def __init__(self, filename):
-        base_dir = pathlib.Path(__file__).parent.resolve()
+        base_dir = str(pathlib.Path(__file__).parent.resolve().absolute())
     
         self.filename = base_dir + '\\dicts\\' + filename
         self.json_dict = self.get_json_dict()

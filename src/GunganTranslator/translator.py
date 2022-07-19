@@ -1,7 +1,7 @@
 import json, re
 import pdb
 import random
-
+import pathlib
 
 def translate(sentence):
     translators = [TranslateFullMatch(), TranslatePartialMatch(), TranslateStartingMatch(), TranslateEndingMatch()]
@@ -16,7 +16,9 @@ def translate(sentence):
 
 class TranslateBase():
     def __init__(self, filename):
-        self.filename = '.\\dicts\\' + filename
+        base_dir = pathlib.Path(__file__).parent.resolve()
+    
+        self.filename = base_dir + '\\dicts\\' + filename
         self.json_dict = self.get_json_dict()
         
     def get_json_dict(self):
